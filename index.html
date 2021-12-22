@@ -15,10 +15,40 @@
 
   <body>
 
-    <div id="app"><!---- div with id app-->
-      <h1>{{product}} goes here</h1>
-      <h2>{{ product }}</h2>
-    </div><!----End of div with id app-->
+    <!---- div with id app-->
+    <div id="app">
+
+      <!--- product display div element --->
+      <div class="product-display">
+
+        <!--- product container div element --->
+        <div class="product-container">
+
+          <!--- product image div element --->
+          <div class="product-image">
+            <!-- Image goes here -->
+            <image v-bind:src="image"></image>
+
+          <!--- End of product image div element --->  
+          </div>
+          <!-- product info div element -->
+          <div class="product-info">
+
+            <h1> PRODUCTS </h1>
+            <h2>{{ product }}</h2>
+
+          </div>
+          <!--End of product info div element -->
+
+        <!--- End of product container div element --->  
+        </div>
+
+      <!--- End of product display div element --->  
+      </div>
+
+    </div>
+    <!----End of div with id app-->
+
 
     <!-- Import Js -->
     <script src="./main.js"></script>
