@@ -42,6 +42,14 @@
 
             <p v-show="stock">Stock Options</p>
 
+            <ul>
+              <li v-for="detail in details"> {{detail}} </li>
+            </ul>
+
+            <div v-for="variant in variants" v-bind:key="variant.id">
+              {{variant.color}}
+            </div>
+
           </div>
           <!--End of product info div element -->
 
