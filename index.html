@@ -36,6 +36,11 @@
 
             <h1> PRODUCTS </h1>
             <h2>{{ product }}</h2>
+            <p v-if='stock' > In Stock </p>
+            <p v-if='inventory <= 100 && inventory >10'>Fast Selling. Only <span>{{inventory}}</span>  available now</p>
+            <p v-else='stock'> Out of Stock </p>
+
+            <p v-show="stock">Stock Options</p>
 
           </div>
           <!--End of product info div element -->
