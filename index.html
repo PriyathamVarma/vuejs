@@ -18,6 +18,15 @@
     <!---- div with id app-->
     <div id="app">
 
+      <!-- navbar div element -->
+      <div class="nav-bar"></div>
+
+      <!-- cart div element -->
+
+      <div class="cart">Cart({{cart}})</div>
+
+      <!-- End of cart div element -->
+
       <!--- product display div element --->
       <div class="product-display">
 
@@ -46,9 +55,14 @@
               <li v-for="detail in details"> {{detail}} </li>
             </ul>
 
-            <div v-for="variant in variants" v-bind:key="variant.id">
+            <div v-for="variant in variants" v-bind:key="variant.id" v-on:mouseover="updateImage(variant.image)">
               {{variant.color}}
             </div>
+
+            <button class="button" v-on:click="cart+=1">Add To Cart</button>
+            <button class="button" v-on:click="cart-=1">Remove From Cart</button>
+            <button class="button" v-on:click="cartFunc">Empty Cart</button>
+            <!-- NOTE : ******* instead of v-on:click it can be written as @click -->
 
           </div>
           <!--End of product info div element -->
