@@ -27,69 +27,7 @@
       <div class="cart">Inventory({{inventory}})</div>
 
       <!-- End of cart div element -->
-
-      <!--- product display div element --->
-      <div class="product-display">
-
-        <!--- product container div element --->
-        <div class="product-container">
-
-          <!--- product image div element --->
-          <div class="product-image">
-            <!-- Image goes here -->
-            <image v-bind:src="image"></image>
-            <p style="margin-left:40px">Quantity of products : {{qty}}</p>
-
-          <!--- End of product image div element --->  
-          </div>
-          <!-- product info div element -->
-          <div class="product-info">
-
-            <h1> PRODUCTS </h1>
-            <h2> {{title}} </h2>
-            <h2>{{ product }}</h2>
-            <p v-if='stock' > In Stock </p>
-            <p v-if='inventory <= 100 && inventory >10'>Fast Selling. Only <span>{{inventory}}</span>  available now</p>
-            <p v-else='stock'> Out of Stock </p>
-            <p v-show="stock"> Stock Options </p>
-
-            <ul>
-              <li v-for="detail in details"> {{detail}} </li>
-            </ul>
-
-            <div v-for="(variant,index) in variants" 
-                 v-bind:key="variant.id"                  
-                 v-on:mouseover="updateVariant(index)"
-                 class="color-circle"
-                 v-bind:style="{ backgroundColor : variant.color }">
-            </div>
-
-            <button class = "button"
-                    v-on:click = "addToCart"
-                    v-bind:class = "{disabledButton : !stock}"
-                    v-bind:disabled = '!stock'>
-                    Add To Cart
-            </button>
-
-            <button class="button" 
-                    v-on:click="removeFromCart">
-                    Remove From Cart
-            </button>
-
-            <button class="button"
-                    v-on:click="emptyCart">
-                    Empty Cart
-            </button>
-            <!-- NOTE : ******* instead of v-on:click it can be written as @click ******** -->
-
-          </div>
-          <!--End of product info div element -->
-
-        <!--- End of product container div element --->  
-        </div>
-
-      <!--- End of product display div element --->  
-      </div>
+      <product-display :premium="premium"></product-display>
 
     </div>
     <!----End of div with id app-->
@@ -97,6 +35,9 @@
 
     <!-- Import Js -->
     <script src="./main.js"></script>
+
+    <!-- Import ProductDisplay.js -->
+    <script src="./components/ProductDisplay.js"></script>
 
     <!-- Mounting App -->
     <script>
